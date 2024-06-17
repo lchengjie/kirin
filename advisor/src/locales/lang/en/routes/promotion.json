@@ -1,0 +1,27 @@
+{
+  "promotionmanagement": "Promotion Management",
+  "promotion": "Promotion",
+  "event": "Event",
+  "program": "Program",
+  "lta": "Long Term Agreement",
+  "forapproval": "In Approval",
+  "create": "Create",
+  "edit": "Edit",
+  "button": "Button Extension",
+  "modal": "Draggable Modal",
+  "form": {
+    "demo": "Form Demo",
+    "basic": "Basic Form",
+    "rule": "Rule Form",
+    "dynamic": "Dynamic Form",
+    "customForm": "Custom Form Component"
+  },
+  "table": {
+    "demo": "Table Demo",
+    "searchTable": "Search Table",
+    "editRowTable": "Editable Rows",
+    "wzry": "Honor of Kings",
+    "lol": "League of Legends"
+  },
+  "icon": "Custom Icon"
+}

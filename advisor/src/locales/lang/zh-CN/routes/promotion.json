@@ -1,0 +1,27 @@
+{
+  "promotionmanagement": "促销管理",
+  "promotion": "促销活动",
+  "event": "大事件",
+  "program": "促销项目",
+  "lta": "长期协议",
+  "forapproval": "待审批",
+  "create": "创建",
+  "edit": "编辑",
+  "button": "按钮的扩展",
+  "modal": "可拖拽弹窗",
+  "form": {
+    "demo": "表单演示",
+    "basic": "基础表单",
+    "rule": "表单校验",
+    "dynamic": "动态表单",
+    "customForm": "自定义表单组件"
+  },
+  "table": {
+    "demo": "表格演示",
+    "searchTable": "查询表格",
+    "editRowTable": "可编辑行",
+    "wzry": "王者荣耀",
+    "lol": "英雄联盟"
+  },
+  "icon": "自定义图标"
+}

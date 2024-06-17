@@ -1,0 +1,98 @@
+
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+
+.layout-header {
+  display: flex;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--app-header-height);
+  padding: 0 20px;
+
+  .header-right {
+    min-width: 180px;
+    cursor: pointer;
+  }
+
+  .header-menu {
+    flex: 1;
+    align-items: center;
+    min-width: 0;
+  }
+}
+
+
+.style-checkbox-item {
+  position: relative;
+  cursor: pointer;
+
+  &.active::after {
+    content: '✔';
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    color: var(--app-primary-color);
+  }
+}
+
+input[type='color'] {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  appearance: none;
+
+  &::-webkit-color-swatch-wrapper {
+    background: var(--custom-color);
+  }
+
+  &::-webkit-color-swatch {
+    display: none;
+  }
+}
+
+.main-grid-container {
+  height: calc(100% - 62px);
+  max-height: calc(100% - 62px);
+  // height: calc(100% - 62px - 64px - 48px);
+  // max-height: calc(100% - 62px - 64px - 48px);
+}
+
+.mytable {
+  .ant-table-body {
+    max-height: calc(100vh - 300px) !important;
+    height: calc(100vh - 300px) !important;
+  }
+}
+
+
+// model
+
+.full-modal {
+  .ant-modal {
+    max-width: 75%;
+    top: 64px;
+    padding-bottom: 0;
+    // margin: 0;
+    margin: auto;
+  }
+  .ant-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(75vh);
+  }
+  .ant-modal-body {
+    flex: 1;
+  }
+}
+
+
+// end model

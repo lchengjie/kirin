@@ -1,0 +1,16 @@
+// @root-entry-name: variable;
+
+@import './reset.css';
+// @import './theme.scss';
+// @import './transition.scss';
+@import './common.scss';
+@import './variables.scss';
+// @import './antdv.override.scss';
+
+// @import './theme-vars.less';
+@import './custom.scss';
+
+// @import "ant-design-vue/lib/style/themes/default.less";
+// body{
+//   color:mix(#333333, @primary-color, 90%);
+// }
