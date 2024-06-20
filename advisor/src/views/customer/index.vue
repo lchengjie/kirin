@@ -38,10 +38,15 @@
           Name
         </span>
       </template>
+      <template v-else>
+        <span>
+          {{ t(`customer.${column.title}`) }}
+        </span>
+      </template>
     </template>
     <template #bodyCell="{ column, text, record }">
       <template v-if="column.key === 'name'">
-        <a>{{ text }}</a>
+        <!-- <a>{{ text }}</a> -->
         <RouterLink :to="{ path: `/bpa/edit/${record.pkey}`, replace: true }"
           class="ant-btn ant-btn-primary">
           {{ text }}
@@ -55,22 +60,31 @@
 
 <script setup lang="ts">
 import { computed, h, onMounted, reactive, ref, unref } from 'vue';
+import { useRoute, useRouter, type RouteRecordRaw } from 'vue-router';
+
 import { useCfgStore } from "@/stores/modules/cfg";
 import { useI18n } from '@/hooks/useI18n';
 const { t } = useI18n();
 import { FilterOutlined, PlusOutlined, SmileOutlined } from '@ant-design/icons-vue';
 import Api from '@/api/';
 import type { TableColumnsType } from 'ant-design-vue';
-import type { GridColumnConfig } from 'CFG';
+import type { GridColumnConfig, ProfileConfig } from 'CFG';
 import { Table } from 'ant-design-vue';
 // import { ResizableColumn } from '@/components/core/resizable-column';
 import InsertCustomerWizard from './components/insertCustomerWizard.vue'
+import getCurrentProfile from '@/utils/get-profile'
 
 const { getCustomerList } = Api.customer
 
 const remoteData = ref<boolean>(true)
 
 const cfgStore = useCfgStore();
+const route = useRoute();
+
+const currentProfileConfig = computed(() => {
+  const { meta: { profile }} = route
+  return getCurrentProfile(cfgStore.profileConfig as ProfileConfig, profile as string)
+})
 
 const createCustomerWizardModal = ref({
   visible: false,
@@ -79,9 +93,10 @@ const createCustomerWizardModal = ref({
   okTitle: t('global.girdoktitle'),
   content: ''
 })
-
-const mycolumn = cfgStore.getMyColumn("customer", "default", "overview");
-
+// const mycolumn = cfgStore.getMyColumn("customer", "default", "overview");
+const mycolumn = cfgStore.getMyColumn(currentProfileConfig.value.module,
+  currentProfileConfig.value.column.columnIdentification.name, 
+  currentProfileConfig.value.column.columnIdentification.type);
 const columns: TableColumnsType = reactive([]);
 if (mycolumn) {
   mycolumn.forEach((e: GridColumnConfig) => {
@@ -108,7 +123,6 @@ if (mycolumn) {
       // filterMultiple: false,
       // 当一次性查出现所有数据时则使用前端搜索
       onFilter: (value, record) => {
-        console.log("🚀 ~ mycolumn.forEach ~ value:", record, value)
         
         return record.id.includes(value)
       },
@@ -117,7 +131,6 @@ if (mycolumn) {
 }
 
 // const handleResize = ({ index, width }) => {
-//   console.log("🚀 ~ handleResize ~ index, width:", index, width)
 //   columns[index].width = width;
 // };
 
@@ -170,7 +183,6 @@ onMounted(() => {
 })
 
 function handleTableChange(pagination, filters, sorter) {
-  console.log("🚀 ~ handleTableChange ~ filters:", filters)
   state.pagination.current = pagination.current;
   state.sorter.field = sorter.field;
   state.sorter.order = sorter.order;

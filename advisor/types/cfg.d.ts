@@ -115,11 +115,53 @@ declare module 'CFG' {
     buttons?: Record<string, { iconClass: string, command: string, text: string, order: number, editable: boolean, visible: boolean, accessGroup: string }[]>
   }
 
-  
-
   interface UiGroupConfig extends Record<string, Record<string, UiGroupTabConfig>> {}
   interface UiGroupTabConfig extends Record<string, UiGroupTabValueConfig | string[]> {
     tabs: string[],
+    main: UiGroupTabValueConfig,
+    tactic?: UiGroupTabValueConfig,
+    segmentation?: UiGroupTabValueConfig,
+    childpromotion?: UiGroupTabValueConfig,
+    stores?: UiGroupTabValueConfig,
+    management?: UiGroupTabValueConfig,
+    customer?: UiGroupTabValueConfig,
+    hierarchy?: UiGroupTabValueConfig,
+    status?: UiGroupTabValueConfig,
+    attachment?: UiGroupTabValueConfig,
+    condition?: UiGroupTabValueConfig,
+    fundingsources?: UiGroupTabValueConfig,
+    targetfund?: UiGroupTabValueConfig,
+    approval?: UiGroupTabValueConfig,
+    accruals?: UiGroupTabValueConfig,
+    regionallocation?: UiGroupTabValueConfig,
+    areaallocation?: UiGroupTabValueConfig,
+    storeallocation?: UiGroupTabValueConfig,
+    distributorallocation?: UiGroupTabValueConfig,
+    pex1gr?: UiGroupTabValueConfig,
+    pex2gr?: UiGroupTabValueConfig,
+    funds?: UiGroupTabValueConfig,
+    promotionfunds?: UiGroupTabValueConfig,
+    paymentfunds?: UiGroupTabValueConfig,
+    passivefunds?: UiGroupTabValueConfig,
+    monthlydata?: UiGroupTabValueConfig,
+    settings?: UiGroupTabValueConfig,
+    dependencies?: UiGroupTabValueConfig,
+    field?: UiGroupTabValueConfig,
+    salesarea?: UiGroupTabValueConfig,
+    roles?: UiGroupTabValueConfig,
+    orgunits?: UiGroupTabValueConfig,
+    prdmanagement?: UiGroupTabValueConfig,
+    login?: UiGroupTabValueConfig,
+    notifications?: UiGroupTabValueConfig,
+    region?: UiGroupTabValueConfig,
+    area?: UiGroupTabValueConfig,
+    distributor?: UiGroupTabValueConfig,
+    firstgr?: UiGroupTabValueConfig,
+    secondgr?: UiGroupTabValueConfig,
+    orgunit?: UiGroupTabValueConfig,
+    relationships?: UiGroupTabValueConfig,
+    address?: UiGroupTabValueConfig,
+    contact?: UiGroupTabValueConfig,
   }
   interface UiGroupTabValueConfig { name: string, text: string, slot: string, condition?: Record<string, any>, content?: Object }
 

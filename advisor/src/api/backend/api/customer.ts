@@ -42,3 +42,14 @@ export async function getCustomerAnchorList(params: any, options?: RequestOption
     ...(options || {}),
   });
 }
+
+/** 获取的Customer Info GET /api/customer/:pkey */
+export async function getCustomer(pkey: string, params: any, options?: RequestOptions) {
+  return request(`/api/customer/${pkey}`, {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}

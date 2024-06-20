@@ -16,9 +16,11 @@ import { useRoute, useRouter, type RouteRecordRaw } from 'vue-router';
 import { useCfgStore } from "@/stores/modules/cfg";
 import { extractRules } from '@/utils/extractRules'
 import { WsWizardForm } from '@/components/business/ws-wizard-form'
+import getCurrentProfile from '@/utils/get-profile';
+
 // 初始化值，从filed的配置中获取初始化值（initialValue）
 import Api from '@/api/';
-import type { WizardConfig } from 'CFG';
+import type { DetailContextConfig, WizardConfig } from 'CFG';
 
 const { getCustomerMetaList } = Api.bpameta
 const { createCustomer } = Api.customer
@@ -26,10 +28,18 @@ const { createCustomer } = Api.customer
 const router = useRouter();
 const route = useRoute();
 const cfgStore = useCfgStore();
+
+const currentDetailContextConfig = computed(() => {
+  const { meta: { detailContext }} = route
+  const detailContextConfig = cfgStore.detailContextConfig as DetailContextConfig
+  return detailContextConfig[detailContext as string]
+})
+
 const initialData = reactive<Record<string, any>>({})
-const wizardConfig = reactive<WizardConfig>(cfgStore.getPageWizardConfig("customer", "defaultWizard"));
+const wizardConfig = reactive<WizardConfig>(cfgStore.getPageWizardConfig(currentDetailContextConfig.value.module,currentDetailContextConfig.value.wizardName!))
 
 const templateList = ref<SelectProps['options']>([]);
+
 
 onMounted(async() => {
   const { rows: templateMetaList } = await getCustomerMetaList({ active: true })

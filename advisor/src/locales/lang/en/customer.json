@@ -1,0 +1,19 @@
+{
+  "customercolumn": {
+    "id": "Id",
+    "name": "Customer Name",
+    "bpastatedesc": "Status",
+    "customertypedesc": "Customer Type",
+    "distributordesc": "Distributor",
+    "template": "Customer Template",
+    "channeldesc": "Channel",
+    "hierarchycode": "Hierarchy Code",
+    "regiondesc": "Region",
+    "subregiondesc": "Sub Region",
+    "areadesc": "Area",
+    "citydesc": "City",
+    "storetype2desc": "Store Type 2",
+    "nc": "NC Store",
+    "accountdesc": "Account"
+  }
+}

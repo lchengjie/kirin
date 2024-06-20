@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
           icon: 'ant-design:desktop-outlined',
           keepAlive: false,
           detailContext: 'customerDetailContext',
-          profile: 'CheckbookIdentificationProfile'
+          profile: 'CustomerIdentificationProfile'
         },
         component: () => import('@/views/customer/index.vue'),
       },

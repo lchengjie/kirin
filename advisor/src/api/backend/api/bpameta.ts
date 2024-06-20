@@ -19,3 +19,16 @@ export async function getCustomerMetaList(params: any, options?: RequestOptions)
     ...(options || {}),
   });
 }
+
+
+
+/** 获取的Customer Meta Info GET /api/bpame/:pkey */
+export async function getCustomerMeta(pkey: string, params: any, options?: RequestOptions) {
+  return request(`/api/bpame/${pkey}`, {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}

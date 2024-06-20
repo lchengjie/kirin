@@ -1,0 +1,19 @@
+{
+  "customercolumn": {
+    "id": "编号",
+    "name": "客户名称",
+    "bpastatedesc": "客户状态",
+    "customertypedesc": "客户类型",
+    "distributordesc": "经销商",
+    "template": "客户模板",
+    "channeldesc": "渠道",
+    "hierarchycode": "层级编码",
+    "regiondesc": "大区",
+    "subregiondesc": "片区",
+    "areadesc": "区域",
+    "citydesc": "城市",
+    "storetype2desc": "门店类型2",
+    "nc": "NC门店",
+    "accountdesc": "客户"
+  }
+}
