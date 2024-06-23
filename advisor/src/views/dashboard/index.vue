@@ -1,6 +1,4 @@
 <template>
-  General User Dashboard
-
   <a-form :model="formState" :label-col="labelCol" :wrapper-col="wrapperCol">
     <a-form-item label="Activity name">
       <a-input v-model:value="formState.name" />

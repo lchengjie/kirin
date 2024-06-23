@@ -1,0 +1,29 @@
+{
+  "overviewheader": {
+    "overview": "Overview",
+    "detail": "Detail",
+    "new": "New",
+    "save": "Save",
+    "open": "Open",
+    "saveback": "Save&Back",
+    "download": "Download",
+    "initialclient": "Initial Client",
+    "cancel": "Close",
+    "delete": "Delete",
+    "add": "Add",
+    "preview": "Preview",
+    "allocate": "Allocate",
+    "kickoff": "Kick Off",
+    "createperiodhierarchy": "Create Period Hierarchy",
+    "createcheckbooksviaserver": "Create Checkbooks via Server",
+    "createfundsviaserver": "Create Funds via Server",
+    "createuserpassword": "Set User Password",
+    "upload": "Upload",
+    "filter": "Filter",
+    "createclient": "Create Client",
+    "createsalesorg": "Create Salesorg",
+    "createdivision": "Create Division",
+    "createsalesarea": "Create Salesarea",
+    "createinitial": "Create Initial"
+  }
+}

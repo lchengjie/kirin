@@ -68,8 +68,11 @@ input[type='color'] {
 
 .mytable {
   .ant-table-body {
-    max-height: calc(100vh - 300px) !important;
-    height: calc(100vh - 300px) !important;
+    // 555
+    // 100vh - 145px - 64px - 48px - 44px - 1px - 40px
+    // 300+42
+    max-height: calc(100vh - 145px - 64px - 48px - 44px - 1px - 40px - 30px) !important;
+    height: calc(100vh - 145px - 64px - 48px - 44px - 1px - 40px - 30px) !important;
   }
 }
 

@@ -20,10 +20,11 @@
           <AsideMenu :collapsed="collapsed" :theme="getTheme" />
         </template>
       </PageHeader>
-      <Layout.Content class="layout-content m-2 overflow-hidden">
-        <Suspense>
+      <Layout.Content class="layout-content overflow-hidden">
+        <TabsView />
+        <!-- <Suspense>
           <router-view />
-        </Suspense>
+        </Suspense> -->
       </Layout.Content>
       <PageFooter />
     </Layout>
@@ -36,6 +37,7 @@
   import { Layout } from 'ant-design-vue';
   import Logo from './logo/index.vue';
   import AsideMenu from './menu/menu.vue';
+  import { TabsView } from './tabs';
 
   import PageHeader from './header/index.vue';
   import PageFooter from './footer';

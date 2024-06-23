@@ -54,7 +54,10 @@ function parseConfigAnd(config, mappingObj) {
     .every((ii) => {
       // config[ii] 里边配置一个key, 以及对应的值的要求
       const fieldKey = Object.keys(config[ii])[0]
-
+      
+      console.log("🚀 ~ .every ~ mappingObj[ii]:", mappingObj[ii])
+      console.log("🚀 ~ .every ~ mappingObj:", mappingObj)
+      console.log("🚀 ~ .every ~ currentValue,ii:", ii, ',fieldKey:', fieldKey)
       const currentValue = mappingObj[ii][fieldKey]
       const configValue = config[ii][fieldKey]
 
@@ -98,7 +101,8 @@ function parseConfigAnd(config, mappingObj) {
 }
 
 export default function parseAccessRights(currentAccessGroupConfig, mappingObj) {
-  const right = {}
+  // 默认全部加上base，这个是为了兼容原来的设计，以后需要考虑删除
+  const right: Record<string, Object> = { base: { editable: false, visible: true } }
   Object.keys(currentAccessGroupConfig)
     .forEach(accessGroup => {
       right[accessGroup] = parseAccessGroup(currentAccessGroupConfig[accessGroup], mappingObj)

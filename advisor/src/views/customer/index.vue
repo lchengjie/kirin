@@ -1,61 +1,62 @@
 <template>
-  <InsertCustomerWizard v-model:open="createCustomerWizardModal.visible" :id="createCustomerWizardModal.id" :title="createCustomerWizardModal.title" />
+  <div>
+    <InsertCustomerWizard v-model:open="createCustomerWizardModal.visible" :id="createCustomerWizardModal.id" :title="createCustomerWizardModal.title" />
 
-  <a-page-header
-    class="b-solid b-1 p-2 mb-1"
-    style="border-color: rgb(235, 237, 240)"
-    title="Title"
-    sub-title="This is a subtitle"
-    @back="() => $router.go(-1)"
-  >
-    <template #extra>
-      <a-tooltip title="Create">
-        <!-- <a-button shape="circle" :icon="h(PlusOutlined)" /> -->
-        <a-button shape="circle" :icon="h(PlusOutlined)" @click="handleCreateCustomer" />
-      </a-tooltip>
-      <a-tooltip title="Filter">
-        <a-button shape="circle" :icon="h(FilterOutlined)" />
-      </a-tooltip>
-      <a-button key="3"><FilterOutlined /></a-button>
-      <a-button key="2">Operation</a-button>
-      <a-button key="1" type="primary">Primary</a-button>
-    </template>
+    <a-page-header
+      class="b-solid b-1 p-2 mb-1"
+      style="border-color: rgb(235, 237, 240)"
+      title="Customer"
+      sub-title="所有客户"
+    >
+      <template #extra>
+        <a-tooltip title="Create">
+          <!-- <a-button shape="circle" :icon="h(PlusOutlined)" /> -->
+          <a-button shape="circle" :icon="h(PlusOutlined)" @click="handleCreateCustomer" />
+        </a-tooltip>
+        <a-tooltip title="Filter">
+          <a-button shape="circle" :icon="h(FilterOutlined)" />
+        </a-tooltip>
+        <a-button key="3"><FilterOutlined /></a-button>
+        <a-button key="2">Operation</a-button>
+        <a-button key="1" type="primary">Primary</a-button>
+      </template>
+    </a-page-header>
     <a-table
       :columns="columns"
-      :scroll="{ x: '100%', y: 'calc(100vh - 300px)' }"
+      :scroll="{ x: '100%', y: 'calc(100vh - 406px)' }"
       :dataSource="state.data"
       :loading="state.loading"
       :pagination="state.pagination"
       :rowKey="(record: any) => record.pkey"
+      class="mytable"
       :rowSelection="rowSelection"
       @change="handleTableChange"
       @resizeColumn="handleResizeColumn"
     >
-    <template #headerCell="{ column }">
-      <template v-if="column.key === 'name'">
-        <span>
-          <SmileOutlined />
-          Name
-        </span>
+      <template #headerCell="{ column }">
+        <template v-if="column.key === 'name'">
+          <span>
+            <SmileOutlined />
+            Name
+          </span>
+        </template>
+        <template v-else>
+          <span>
+            {{ t(`customer.${column.title}`) }}
+          </span>
+        </template>
       </template>
-      <template v-else>
-        <span>
-          {{ t(`customer.${column.title}`) }}
-        </span>
+      <template #bodyCell="{ column, text, record }">
+        <template v-if="column.key === 'name'">
+          <!-- <a>{{ text }}</a> -->
+          <RouterLink :to="{ path: `/bpa/edit/${record.pkey}`, replace: true }"
+            class="ant-btn ant-btn-primary">
+            {{ text }}
+          </RouterLink>
+        </template>
       </template>
-    </template>
-    <template #bodyCell="{ column, text, record }">
-      <template v-if="column.key === 'name'">
-        <!-- <a>{{ text }}</a> -->
-        <RouterLink :to="{ path: `/bpa/edit/${record.pkey}`, replace: true }"
-          class="ant-btn ant-btn-primary">
-          {{ text }}
-        </RouterLink>
-      </template>
-    </template>
-  </a-table>
-  </a-page-header>
-
+    </a-table>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -75,6 +76,7 @@ import InsertCustomerWizard from './components/insertCustomerWizard.vue'
 import getCurrentProfile from '@/utils/get-profile'
 
 const { getCustomerList } = Api.customer
+console.log("🚀 ~ getCustomerList000000000:")
 
 const remoteData = ref<boolean>(true)
 
@@ -183,7 +185,9 @@ onMounted(() => {
 })
 
 function handleTableChange(pagination, filters, sorter) {
+  console.log("🚀 ~ handleTableChange ~ pagination:", pagination)
   state.pagination.current = pagination.current;
+  state.pagination.pageSize = pagination.pageSize;
   state.sorter.field = sorter.field;
   state.sorter.order = sorter.order;
 

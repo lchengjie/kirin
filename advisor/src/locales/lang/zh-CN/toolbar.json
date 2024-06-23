@@ -1,0 +1,29 @@
+{
+  "overviewheader": {
+    "overview": "概览",
+    "detail": "详情",
+    "new": "新建",
+    "save": "保存",
+    "open": "打开",
+    "saveback": "保存&返回",
+    "download": "下载",
+    "initialclient": "初始化客户",
+    "cancel": "返回",
+    "delete": "删除",
+    "add": "添加",
+    "preview": "预览",
+    "allocate": "分配",
+    "kickoff": "开始",
+    "createperiodhierarchy": "创建周期层级",
+    "createcheckbooksviaserver": "通过服务器创建账本",
+    "createfundsviaserver": "通过服务器创建资金",
+    "createuserpassword": "设置用户密码",
+    "upload": "上传",
+    "filter": "筛选",
+    "createclient": "创建客户",
+    "createsalesorg": "创建销售组织",
+    "createdivision": "创建部门",
+    "createsalesarea": "创建销售区域",
+    "createinitial": "创建初始化用户"
+  }
+}
